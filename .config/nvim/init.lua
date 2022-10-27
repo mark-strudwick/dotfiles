@@ -1,1 +1,1 @@
-require("mark")
+require("me").setup()
