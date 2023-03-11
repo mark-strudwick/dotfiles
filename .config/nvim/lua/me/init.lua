@@ -6,7 +6,7 @@ local function init()
 	vim.g.loaded_python_provider = 0
 
 	vim.g["test#strategy"] = "neovim"
-	vim.g["test#neovim#term_position"] = "vertical"
+	vim.g["test#neovim#term_position"] = "horizontal"
 	vim.g["test#javascript#jest#options"] = "--watch"
 end
 

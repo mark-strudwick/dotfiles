@@ -17,7 +17,7 @@ local user_plugins = {
 	{
 		"mbbill/undotree",
 		config = function()
-			vim.keymap.set("n", "<Leader>u", "<Cmd>UndotreeToggle<CR>", { desc = "Open undo tree" })
+			vim.keymap.set("n", "<Leader>u", vim.cmd.UndotreeToggle, { desc = "Open undo tree" })
 		end,
 	},
 
@@ -59,7 +59,7 @@ local user_plugins = {
 			"glepnir/lspsaga.nvim",
 		},
 		config = function()
-			require("lspsaga").init_lsp_saga({ border_style = "rounded" })
+			-- require("lspsaga").init_lsp_saga({ border_style = "rounded" })
 			require("mason").setup()
 			require("me.plugins.configs.lspconfig")
 		end,
@@ -101,13 +101,13 @@ local user_plugins = {
 
 	-- Theme/Syntax
 	{ "catppuccin/nvim", as = "catppuccin" },
-	{
-		"akinsho/bufferline.nvim",
-		requires = "nvim-tree/nvim-web-devicons",
-		config = function()
-			require("me.plugins.configs.bufferline")
-		end,
-	},
+	-- {
+	-- 	"akinsho/bufferline.nvim",
+	-- 	requires = "nvim-tree/nvim-web-devicons",
+	-- 	config = function()
+	-- 		require("me.plugins.configs.bufferline")
+	-- 	end,
+	-- },
 	{
 		"nvim-lualine/lualine.nvim",
 		requires = "nvim-tree/nvim-web-devicons",
@@ -116,6 +116,8 @@ local user_plugins = {
 		end,
 	},
 	"princejoogie/tailwind-highlight.nvim",
+
+	"github/copilot.vim",
 }
 
 -- Plugin Setup

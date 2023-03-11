@@ -20,7 +20,7 @@ local function on_attach(client, bufnr)
 	-- LSP Saga keymaps
 	vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", { desc = "Hover documentation [LSP]", buffer = bufnr })
 	vim.keymap.set("n", "<leader>af", "<Cmd>Lspsaga code_action<CR>", { desc = "Code action [LSP]", buffer = bufnr })
-	vim.keymap.set("n", "<leader>rn", "<Cmd>Lspsaga rename<CR>", { desc = "Rename [LSP]", buffer = bufnr })
+	vim.keymap.snn("n", "<leader>rn", "<Cmd>Lspsaga rename<CR>", { desc = "Rename [LSP]", buffer = bufnr })
 	vim.keymap.set(
 		"n",
 		"<leader>ls",
@@ -76,31 +76,31 @@ require("mason-tool-installer").setup({
 })
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		"bashls",
-		"cssls",
+		-- "bashls",
+		-- "cssls",
 		"diagnosticls",
-		"dockerls",
-		"gopls",
-		"html",
-		"jsonls",
-		"pylsp",
-		"sumneko_lua",
-		"tailwindcss",
+		-- "dockerls",
+		-- "gopls",
+		-- "html",
+		-- "jsonls",
+		-- "pylsp",
+		-- "sumneko_lua",
+		"rust_analyzer",
+		-- "tailwindcss",
 		"tsserver",
-		"yamlls",
+		-- "yamlls",
 	},
 	automatic_installation = true,
 })
 
 -- Language Servers
-lspconfig.pylsp.setup(default_config)
-lspconfig.bashls.setup(default_config)
-lspconfig.cssls.setup(default_config)
-lspconfig.dockerls.setup(default_config)
-lspconfig.html.setup(default_config)
-lspconfig.jsonls.setup(default_config)
-lspconfig.yamlls.setup(default_config)
-lspconfig.gopls.setup(default_config)
+-- lspconfig.pylsp.setup(default_config)
+-- lspconfig.bashls.setup(default_config)
+-- lspconfig.html.setup(default_config)
+-- lspconfig.jsonls.setup(default_config)
+-- lspconfig.yamlls.setup(default_config)
+-- lspconfig.gopls.setup(default_config)
+lspconfig.rust_analyzer.setup(default_config)
 
 -- Tailwind CSS
 local tw_highlight = require("tailwind-highlight")
@@ -142,19 +142,19 @@ local lua_rtp = vim.split(package.path, ";")
 table.insert(lua_rtp, "lua/?.lua")
 table.insert(lua_rtp, "lua/?/init.lua")
 
-lspconfig.sumneko_lua.setup(vim.tbl_extend("force", default_config, {
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-				path = lua_rtp,
-			},
-			diagnostics = { globals = { "vim" } },
-			workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-			telemetry = { enable = false },
-		},
-	},
-}))
+-- lspconfig.sumneko_lua.setup(vim.tbl_extend("force", default_config, {
+-- 	settings = {
+-- 		Lua = {
+-- 			runtime = {
+-- 				version = "LuaJIT",
+-- 				path = lua_rtp,
+-- 			},
+-- 			diagnostics = { globals = { "vim" } },
+-- 			workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+-- 			telemetry = { enable = false },
+-- 		},
+-- 	},
+-- }))
 
 local diagnosticls_group = vim.api.nvim_create_augroup("DiagnosticLSGroup", {})
 local diagnosticls = require("diagnosticls-configs")
