@@ -110,6 +110,14 @@ local user_plugins = {
 	-- 	end,
 	-- },
 
+    -- Whichkey
+	{
+		"folke/which-key.nvim",
+		config = function()
+                require("me.plugins.configs.which-key")
+		end,
+	},
+
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
