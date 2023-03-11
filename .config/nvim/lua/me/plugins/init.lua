@@ -21,19 +21,15 @@ local user_plugins = {
 		end,
 	},
 
-	-- File explorer
-	-- {
-	-- 	"nvim-neo-tree/neo-tree.nvim",
-	-- 	branch = "v2.x",
-	-- 	requires = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-	-- 		"MunifTanjim/nui.nvim",
-	-- 	},
-	-- 	config = function()
-	-- 		require("me.plugins.configs.neo-tree")
-	-- 	end,
-	-- },
+	{
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
+		config = function()
+			require("me.plugins.configs.nvimtree")
+		end,
+	},
 
 	-- Telescope
 	{
@@ -45,48 +41,74 @@ local user_plugins = {
 		end,
 	},
 
-	-- LSP
-	{
-		"neovim/nvim-lspconfig",
-		requires = {
-			-- Linter/Formatter
-			"creativenull/diagnosticls-configs-nvim",
-			-- Tool installer
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			-- UI/Aesthetics
-			"glepnir/lspsaga.nvim",
-		},
-		config = function()
-			-- require("lspsaga").init_lsp_saga({ border_style = "rounded" })
-			require("mason").setup()
+    {
+	  "VonHeikemen/lsp-zero.nvim",
+	  branch = 'v1.x',
+	  requires = {
+		  -- LSP Support
+		  {'neovim/nvim-lspconfig'},
+		  {'williamboman/mason.nvim'},
+		  {'williamboman/mason-lspconfig.nvim'},
+
+		  -- Autocompletion
+		  {'hrsh7th/nvim-cmp'},
+		  {'hrsh7th/cmp-buffer'},
+		  {'hrsh7th/cmp-path'},
+		  {'saadparwaiz1/cmp_luasnip'},
+		  {'hrsh7th/cmp-nvim-lsp'},
+		  {'hrsh7th/cmp-nvim-lua'},
+
+		  -- Snippets
+		  {'L3MON4D3/LuaSnip'},
+		  {'rafamadriz/friendly-snippets'},
+	  },
+    config = function()
 			require("me.plugins.configs.lspconfig")
 		end,
-	},
 
-	-- Autocompletion and Snippets
-	{
-		"hrsh7th/nvim-cmp",
-		requires = {
-			-- Cmdline completions
-			"hrsh7th/cmp-cmdline",
-			-- Path completions
-			"hrsh7th/cmp-path",
-			-- Buffer completions
-			"hrsh7th/cmp-buffer",
-			-- LSP completions
-			"hrsh7th/cmp-nvim-lsp",
-			"onsails/lspkind-nvim",
-			-- vnsip completions
-			"hrsh7th/cmp-vsnip",
-			"hrsh7th/vim-vsnip",
-			"rafamadriz/friendly-snippets",
-		},
-		config = function()
-			require("me.plugins.configs.cmp")
-		end,
-	},
+    },
+	-- -- LSP
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	requires = {
+	-- 		-- Linter/Formatter
+	-- 		"creativenull/diagnosticls-configs-nvim",
+	-- 		-- Tool installer
+	-- 		"williamboman/mason.nvim",
+	-- 		"williamboman/mason-lspconfig.nvim",
+	-- 		"WhoIsSethDaniel/mason-tool-installer.nvim",
+	-- 		-- UI/Aesthetics
+	-- 		"glepnir/lspsaga.nvim",
+	-- 	},
+	-- 	config = function()
+	-- 		-- require("lspsaga").init_lsp_saga({ border_style = "rounded" })
+	-- 		require("mason").setup()
+	-- 		require("me.plugins.configs.lspconfig")
+	-- 	end,
+	-- },
+
+	-- -- Autocompletion and Snippets
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	requires = {
+	-- 		-- Cmdline completions
+	-- 		"hrsh7th/cmp-cmdline",
+	-- 		-- Path completions
+	-- 		"hrsh7th/cmp-path",
+	-- 		-- Buffer completions
+	-- 		"hrsh7th/cmp-buffer",
+	-- 		-- LSP completions
+	-- 		"hrsh7th/cmp-nvim-lsp",
+	-- 		"onsails/lspkind-nvim",
+	-- 		-- vnsip completions
+	-- 		"hrsh7th/cmp-vsnip",
+	-- 		"hrsh7th/vim-vsnip",
+	-- 		"rafamadriz/friendly-snippets",
+	-- 	},
+	-- 	config = function()
+	-- 		require("me.plugins.configs.cmp")
+	-- 	end,
+	-- },
 
 	-- Treesitter
 	{
