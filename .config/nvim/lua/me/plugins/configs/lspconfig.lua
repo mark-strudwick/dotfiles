@@ -44,6 +44,12 @@ lsp.set_preferences({
 	},
 })
 
+local diag_opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, diag_opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, diag_opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, diag_opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, diag_opts)
+
 lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition [LSP]", buffer = bufnr })
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration [LSP]", buffer = bufnr })
