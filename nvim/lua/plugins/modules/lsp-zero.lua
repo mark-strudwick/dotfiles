@@ -30,7 +30,7 @@ return {
         'tsserver',
         'eslint',
         'rust_analyzer',
-        'gopls',
+        -- 'gopls',
         'lua_ls',
         'jsonls',
         'bashls',
@@ -406,27 +406,27 @@ return {
       }
     end,
   },
-  {
-    "olexsmir/gopher.nvim",
-    dependencies = {
-      "leoluz/nvim-dap-go"
-    },
-    lazy = false,
-    config = function()
-      local gopher = require("gopher")
-      gopher.setup({
-        commands = {
-          go = "go",
-          gomodifytags = "gomodifytags",
-          gotests = "gotests",
-          impl = "impl",
-          iferr = "iferr",
-        },
-        goimport = "gopls",
-        gofmt = "gopls",
-      })
-    end
-  },
+  -- {
+  --   "olexsmir/gopher.nvim",
+  --   dependencies = {
+  --     "leoluz/nvim-dap-go"
+  --   },
+  --   lazy = false,
+  --   config = function()
+  --     local gopher = require("gopher")
+  --     gopher.setup({
+  --       commands = {
+  --         go = "go",
+  --         gomodifytags = "gomodifytags",
+  --         gotests = "gotests",
+  --         impl = "impl",
+  --         iferr = "iferr",
+  --       },
+  --       goimport = "gopls",
+  --       gofmt = "gopls",
+  --     })
+  --   end
+  -- },
   {
     "ray-x/go.nvim",
     dependencies = { -- optional packages
