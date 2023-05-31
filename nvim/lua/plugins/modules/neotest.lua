@@ -1,5 +1,3 @@
--- TODO: Setup to work with TS and Rust
-
 return {
   "nvim-neotest/neotest",
   dependencies = {

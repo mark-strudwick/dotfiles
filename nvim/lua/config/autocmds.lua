@@ -5,7 +5,7 @@ local colors = {
   bg = "#252829",
 }
 
--- Don't wrap or add comment markers on new lines
+-- don't auto comment new line
 api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
 --- Remove all trailing whitespace on save
@@ -60,11 +60,57 @@ api.nvim_create_autocmd(
   { pattern = "*", command = "set nocursorline", group = cursorGrp }
 )
 
+-- Enable spell checking for certain file types
+api.nvim_create_autocmd(
+  { "BufRead", "BufNewFile" },
+  -- { pattern = { "*.txt", "*.md", "*.tex" }, command = [[setlocal spell<cr> setlocal spelllang=en,de<cr>]] }
+  {
+    pattern = { "*.txt", "*.md", "*.tex" },
+    callback = function()
+      vim.opt.spell = true
+      vim.opt.spelllang = "en,de"
+    end,
+  }
+)
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', '<leader>v', "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", opts)
+  end,
+})
+
 -- change the background color of floating windows and borders.
 vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function()
     vim.cmd('highlight NormalFloat guibg=none guifg=none')
     vim.cmd('highlight FloatBorder guifg=' .. colors.fg .. ' guibg=none')
     vim.cmd('highlight NormalNC guibg=none guifg=none')
+  end,
+})
+
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+  group =  vim.api.nvim_create_augroup("close_with_q", { clear = true } ),
+  pattern = {
+    "PlenaryTestPopup",
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+    "neotest-output",
+    "checkhealth",
+    "neotest-summary",
+    "neotest-output-panel",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
