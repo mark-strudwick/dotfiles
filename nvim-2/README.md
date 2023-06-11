@@ -1,0 +1,1 @@
+Setup using nvim-chad for default configuration
