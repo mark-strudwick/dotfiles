@@ -1,0 +1,12 @@
+[color]
+    branch = true
+    diff = auto
+    status = true
+    ui = true
+[core]
+    editor = nvim
+[init]
+    defaultBranch = main
+[user]
+    name = Mark Strudwick
+    email = TODO
