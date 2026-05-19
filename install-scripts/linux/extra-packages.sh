@@ -9,3 +9,16 @@ else
         echo "Neovim FAILED TO INSTALL"
     fi
 fi
+
+echo "=== Installing Claude Code ==="
+if command -v claude >/dev/null 2>&1; then
+    echo "Claude Code already installed: $(command -v claude)"
+else
+    brew install --cask claude-code
+    if command -v claude >/dev/null 2>&1; then
+        echo "Claude Code installed successfully"
+    else
+        echo "Claude Code FAILED TO INSTALL"
+    fi
+fi
+
