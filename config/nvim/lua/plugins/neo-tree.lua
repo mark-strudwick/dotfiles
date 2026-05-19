@@ -8,11 +8,62 @@ return {
 	  "nvim-tree/nvim-web-devicons", -- optional, but recommended
 	},
 	keys = {
-	  { "<leader>e", ":Neotree toggle float<CR>", silent = true, desc = "Float file explorer" },
+	  { "<leader>e", ":Neotree toggle float<CR>", silent = true, desc = "Float file explorer" }
 	},
 	config = function()
 	  require("neo-tree").setup({
 	      -- Configuration here, or leave empty to use defaults
+	      close_if_last_window = true,
+	      popup_border_style = "single",
+	      enable_git_status = true,
+	      enable_modified_markers = true,
+	      enable_diagnostics = true,
+	      sort_case_insensitive = true,
+	      default_component_configs = {
+		indent = {
+		  with_markers = true,
+		  with_expanders = true,
+		},
+		modified = {
+		  symbol = " ",
+		  highlight = "NeoTreeModified",
+		},
+		icon = {
+		  folder_closed = "",
+		  folder_open = "",
+		  folder_empty = "",
+		  folder_empty_open = "",
+		},
+		git_status = {
+		  symbols = {
+		    -- Change type
+		    added = "",
+		    deleted = "",
+		    modified = "",
+		    renamed = "",
+		    -- Status type
+		    untracked = "",
+		    ignored = "",
+		    unstaged = "",
+		    staged = "",
+		    conflict = "",
+		  },
+		},
+	      },
+	      window = {
+		position = "float",
+		width = 35,
+	      },
+	      filesystem = {
+		use_libuv_file_watcher = true,
+		filtered_items = {
+		  hide_dotfiles = false,
+		  hide_gitignored = false,
+		  hide_by_name = {
+		    "node_modules",
+		  },
+		},
+	      },
 	  })
 	end
     },
