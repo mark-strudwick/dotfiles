@@ -29,6 +29,7 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes:1"
 vim.opt.cursorline = false
+vim.opt.scrolloff = 9
 vim.opt.wrap = false
 vim.opt.breakindent = false
 vim.opt.showmode = false

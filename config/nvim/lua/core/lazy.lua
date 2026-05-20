@@ -14,12 +14,16 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Configure plugins
 require('lazy').setup({ import = "plugins" }, {
-    change_detection = {
+    install = {
+      missing = true
+    },
+    checker = {
       enabled = true,
       notify = false,
     },
-    install = {
-      missing = true
+    change_detection = {
+      enabled = true,
+      notify = false,
     },
     -- Disable luarocks
     rocks = {
