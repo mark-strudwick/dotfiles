@@ -14,7 +14,7 @@ vim.g.loaded_ruby_provider = 0    -- Disable Ruby provider
 
 -- Editor
 vim.opt.mouse = "a"
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 vim.opt.updatetime = 100
