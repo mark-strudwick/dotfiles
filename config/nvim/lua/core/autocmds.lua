@@ -6,7 +6,8 @@ api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 -- Highlight on yank
 api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    vim.hl.on_yank()
+    vim.api.nvim_set_hl(0, "YankHighlight", { bg = "#F8C8DC", fg = "#000000" })
+    vim.hl.on_yank({ higroup = "YankHighlight" })
   end,
 })
 -- Check for external file changes (works with Claude Code)
