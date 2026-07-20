@@ -39,6 +39,7 @@ return {
             sapphire = "#89b482",
             blue = "#7daea3",
             lavender = "#7daea3",
+
             text = "#ebdbb2",
             subtext1 = "#d5c4a1",
             subtext0 = "#bdae93",
@@ -48,9 +49,10 @@ return {
             surface2 = "#4d4d4d",
             surface1 = "#404040",
             surface0 = "#292929",
-            base = "#1d2021",
-            mantle = "#191b1c",
-            crust = "#141617",
+
+	    base = "#181a1b",      -- was #1d2021
+	    mantle = "#141617",    -- was #191b1c
+	    crust = "#101112",     -- was #141617
           },
         },
       })
