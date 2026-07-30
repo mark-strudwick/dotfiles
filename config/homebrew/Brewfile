@@ -1,0 +1,56 @@
+tap "nikitabobko/tap"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Isolated development environments using Docker
+brew "docker-compose"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Handy way to save and run project-specific commands
+brew "just"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Package manager for the Lua programming language
+brew "luarocks"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Terminal multiplexer
+brew "tmux"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Watch files and take action when they change
+brew "watchman"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "nikitabobko/tap/aerospace", trusted: true
+# Tools for building Android applications
+cask "android-studio"
+# Cross platform SQL editor and database management app
+cask "beekeeper-studio"
+# Terminal-based AI coding assistant
+cask "claude-code"
+cask "font-jetbrains-mono"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Open-source code editor
+cask "visual-studio-code"
+# Multiplayer code editor
+cask "zed"
+# OpenJDK distribution from Azul
+cask "zulu@17"
+vscode "pkief.material-icon-theme"
+vscode "vscodevim.vim"
+go "cmd/go"
+go "cmd/gofmt"
+cargo "rustlings"
+cargo "tree-sitter-cli"
