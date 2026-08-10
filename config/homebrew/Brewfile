@@ -5,6 +5,10 @@ brew "colima"
 brew "docker"
 # Isolated development environments using Docker
 brew "docker-compose"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Handy way to save and run project-specific commands
