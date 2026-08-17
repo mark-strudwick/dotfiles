@@ -31,6 +31,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 return {
   {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    branch = "main",
+    build = ":TSUpdate",
+    init = function()
+      require('nvim-treesitter').install({ 'python', 'javascript', 'typescript', 'jsx', 'tsx', 'go', 'rust', 'html', 'css', 'lua', 'vim' })
+    end,
+  },
+  {
     "mason-org/mason.nvim",
     lazy = false,
     opts = {},
@@ -49,9 +58,11 @@ return {
       ensure_installed = {
         "eslint_d", "lua-language-server", "golangci-lint", "dockerfile-language-server",
 	"typescript-language-server", "yaml-language-server",
+	"rust-analyzer",
         "ruff", "ty",
+	"luacheck",
         -- Formatters
-        "stylua", "prettier",
+        "stylua", "prettier", "yamllint"
       },
     },
   },
