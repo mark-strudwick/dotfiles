@@ -46,6 +46,8 @@ cask "claude-code"
 cask "font-jetbrains-mono"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Open-source code editor
 cask "visual-studio-code"
 # Multiplayer code editor
