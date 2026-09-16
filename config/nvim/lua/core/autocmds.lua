@@ -10,6 +10,7 @@ api.nvim_create_autocmd("TextYankPost", {
     vim.hl.on_yank({ higroup = "YankHighlight" })
   end,
 })
+
 -- Check for external file changes (works with Claude Code)
 api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, { -- CursorHold
   callback = function()
@@ -18,3 +19,4 @@ api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, { -- CursorHold
     end
   end,
 })
+
